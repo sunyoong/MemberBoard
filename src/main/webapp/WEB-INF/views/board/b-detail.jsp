@@ -49,7 +49,7 @@
 	</table>
 </div>
 
-<a href="/board/paging">목록</a>
+<a href="/board/paging?page=${page}">목록</a>
 </body>
 <script>
 /* 댓글 저장을 하기 위한 스크립트 */

@@ -100,12 +100,13 @@ public class BoardController {
 	
 	// 상세조회(detail.jsp) 받아오기
 	@RequestMapping(value="detail", method=RequestMethod.GET)
-	public String detail(@RequestParam("b_number") long b_number, Model model) {
+	public String detail(@RequestParam("b_number") long b_number, @RequestParam(value="page", required=false, defaultValue="1")int page, Model model) {
 		bs.hitsNo(b_number);
 		BoardDTO board = bs.findById(b_number);
 		model.addAttribute("board", board);
 		List<CommentDTO> cList = cs.findAll(b_number);
 		model.addAttribute("commentList", cList);
+		model.addAttribute("page", page);
 		
 		return "board/b-detail";
 	}
